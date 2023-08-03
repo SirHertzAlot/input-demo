@@ -12,6 +12,9 @@ class App extends Component {
     },
     verification: '',
   };
+  formHandler = ({target}) => {
+
+  };
   render() {
     return (
       <div className="form">
@@ -23,7 +26,7 @@ class App extends Component {
             type="email"
             placeholder="E-Mail"
             name="email"
-            onChange={(evt) => this.setState({ email: evt.target.value })}
+            onChange={this.formHandler}
             value={this.state.email}
           />
         </div>
@@ -32,7 +35,7 @@ class App extends Component {
             type="phone"
             placeholder="Phone"
             name="phone"
-            onChange={(evt) => this.setState({ phone: evt.target.value })}
+            onChange={this.formHandler}
             value={this.state.phone}
           />
         </div>
@@ -44,14 +47,7 @@ class App extends Component {
               type="checkbox"
               name="priveleges"
               value="Author"
-              onChange={(evt) =>
-                this.setState({
-                  priveleges: {
-                    ...this.state.priveleges,
-                    Author: !this.state.priveleges['Author'],
-                  },
-                })
-              }
+              onChange={this.formHandler}
               checked={this.state.priveleges.Author}
             />
           </label>
@@ -61,14 +57,7 @@ class App extends Component {
               type="checkbox"
               name="priveleges"
               value="Moderator"
-              onChange={(evt) =>
-                this.setState({
-                  priveleges: {
-                    ...this.state.priveleges,
-                    Moderator: !this.state.priveleges['Moderator'],
-                  },
-                })
-              }
+              onChange={this.formHandler}
               checked={this.state.priveleges.Moderator}
             />
           </label>
@@ -78,14 +67,7 @@ class App extends Component {
               type="checkbox"
               name="priveleges"
               value="Reviewer"
-              onChange={(evt) =>
-                this.setState({
-                  priveleges: {
-                    ...this.state.priveleges,
-                    Reviewer: !this.state.priveleges['Reviewer'],
-                  },
-                })
-              }
+              onChange={this.formHandler}
               checked={this.state.priveleges.Reviewer}
             />
           </label>
@@ -98,7 +80,7 @@ class App extends Component {
               type="radio"
               name="verification"
               value="Phone"
-              onChange={(evt) => this.setState({ verification: evt.target.value })}
+              onChange={this.formHandler}
               checked={this.state.verification === 'Phone' ? true : false}
             />
           </label>
@@ -108,7 +90,7 @@ class App extends Component {
               type="radio"
               name="verification"
               value="E-Mail"
-              onChange={(evt) => this.setState({ verification: evt.target.value })}
+              onChange={this.formHandler}
               checked={this.state.verification === 'E-Mail' ? true : false}
             />
           </label>
